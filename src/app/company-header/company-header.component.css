@@ -1,0 +1,62 @@
+.personal-data
+{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.personal-data__info_position_left
+{
+    margin-right: auto;
+}
+
+.personal-data__image_position_right
+{
+    margin-left: auto;
+}
+
+.personal-data__header
+{
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.personal-data__name
+{
+    white-space: nowrap;
+}
+
+.personal-data__contacts
+{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.personal-data__info_size_m
+{
+    width: 500px;
+}
+
+.personal-data__item
+{
+    margin-right: 25px;
+    margin-bottom: 10px;
+}
+
+.personal-data__link
+{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.personal-data__link_blue,
+.personal-data__link_blue:visited
+{
+    color: #0054b9;
+}
+
+.personal-data__link_gray,
+.personal-data__link_gray:visited
+{
+    color: #808080;
+}

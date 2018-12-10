@@ -1,0 +1,27 @@
+<div class="personal-data internet-bank__item internet-bank__item_delimiter_bottom">
+    <div class="personal-data__info personal-data__info_size_m personal-data__info_position_left">
+        <div class="personal-data__header">
+            {{ company.name }}
+        </div>
+        <div class="personal-data__contacts">
+            <a href="tel:{{ company.phone }}" class="personal-data__item personal-data__link personal-data__link_gray">
+                {{ company.phone }}
+            </a>
+            <a class="personal-data__item personal-data__link personal-data__link_blue" href="http://{{ company.site }}">
+                {{ company.site }}
+            </a>
+            <a class="personal-data__item personal-data__link personal-data__link_blue">
+                {{ company.mail }}
+            </a>
+            <a class="personal-data__item personal-data__link personal-data__link_blue">
+                Информация о компании
+            </a>
+        </div>
+        <a class="personal-data__item personal-data__link personal-data__link_blue">
+            Показать реквизиты
+        </a>
+    </div>
+    <div class="personal-data__image personal-data__image_position_right">
+        <img src="assets/logo.png" alt="">
+    </div>
+</div>
