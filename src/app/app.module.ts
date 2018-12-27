@@ -6,6 +6,10 @@ import { CompanyPromotionComponent } from './company-info/company-promotion/comp
 import { CompanyInfoComponent } from './company-info/company-info.component';
 import { CompanyHeaderComponent } from './company-header/company-header.component';
 import { PaymentComponent } from './payment/payment.component';
+import { PayBlockComponent } from './payment/pay-block/pay-block.component';
+import { AskForPaymentBlockComponent } from './payment/ask-for-payment-block/ask-for-payment-block.component';
+import { CardPaymentComponent } from './payment/pay-block/card-payment/card-payment.component';
+import { InternetBankPaymentComponent } from './payment/pay-block/internet-bank-payment/internet-bank-payment.component';
 
 @NgModule({
     declarations: [
@@ -13,7 +17,11 @@ import { PaymentComponent } from './payment/payment.component';
         CompanyPromotionComponent,
         CompanyInfoComponent,
         CompanyHeaderComponent,
-        PaymentComponent
+        PaymentComponent,
+        PayBlockComponent,
+        AskForPaymentBlockComponent,
+        CardPaymentComponent,
+        InternetBankPaymentComponent
     ],
     imports: [
         BrowserModule
