@@ -39,6 +39,7 @@
     position: relative;
     min-height: 220px;
     margin: 50px 0;
+    padding-bottom: 60px;
 }
 
 .internet-bank__item_delimiter_bottom::after

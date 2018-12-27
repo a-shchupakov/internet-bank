@@ -1,3 +1,28 @@
-<div>
-  card-payment works!
+<div class="card-payment">
+  <form class="payment-form">
+      <div class="card-payment__item card-info card-info_size_m">
+          <div class="card-info__icon-list">
+              <span class="card-info__icon-item card-info__visa"></span>
+              <span class="card-info__icon-item card-info__maestro"></span>
+              <span class="card-info__icon-item card-info__mc"></span>
+          </div>
+          <input class="card-info__number payment-form__input" type="text" name="cardNumber" placeholder="Номер карты">
+          <input class="card-info__expires payment-form__input" type="text" name="cardExpires" placeholder="ММ/ГГ">
+          <input class="card-info__cvc payment-form__input" type="text" name="cardCVC" placeholder="CVC">
+      </div>
+      <div class="card-payment__item payment-info">
+          <label class="payment-form__label" for="paymentAmount">Сумма</label>
+          <input class="payment-info__amount payment-form__input" id="paymentAmount" type="text" name="paymentAmount" placeholder="от 1000 до 75000">
+          <label class="payment-form__label" for="paymentComment">Комментарий</label>
+          <input class="payment-info__comment payment-form__input" id="paymentComment" type="text" name="paymentComment" placeholder="До 150 символовв">
+          <label class="payment-form__label" for="paymentEmail">Ваша эл. почта</label>
+          <input class="payment-info__email payment-form__input" id="paymentEmail" type="email" name="paymentEmail" placeholder="Для квитанции об оплате">
+          <div class="payment-form__button-container payment-form__button-container_size_s">
+              <span class="payment-form__bg"></span>
+              <button class="payment-form__button" type="button">
+                  Заплатить
+              </button>
+          </div>
+      </div>
+  </form>
 </div>
