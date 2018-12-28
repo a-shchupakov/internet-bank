@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
     selector: 'app-internet-bank-payment',
@@ -13,7 +13,31 @@ export class InternetBankPaymentComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.internetPayment = new FormGroup({});
+        this.internetPayment = new FormGroup({
+            iPaymentWho: new FormControl(null,
+                [
+                    Validators.required
+                ]),
+            iPaymentBIK: new FormControl(null,
+                [
+                    Validators.required
+                ]),
+            iPaymentNumber: new FormControl(null,
+                [
+                    Validators.required
+                ]),
+            iPaymentNDS: new FormControl(null,
+                [
+                    Validators.required
+                ]),
+            iPaymentAmount: new FormControl(null,
+                [
+                    Validators.required
+                ])
+        });
     }
 
+    onSubmit() {
+        console.log(this.internetPayment)
+    }
 }

@@ -1,23 +1,57 @@
 <div class="ask-for-payment">
-    <span class="ask-for-payment__title">Создайте платёжку, а {{ company.name }} подпишет её у себя в интернет-банке</span>
-    <form class="payment-form payment-form_layout-grid" [formGroup]="this.askPayment">
-        <label class="payment-form__label payment-form__label_layout-grid" for="iPaymentWho">ИНН получателя</label>
-        <input class="payment-form__input payment-form__input_layout-grid" id="iPaymentWho" type="text" name="askWho" placeholder="ИНН или название плательщика">
-        <label class="payment-form__label payment-form__label_layout-grid" for="iPaymentBIK">БИК</label>
-        <input class="payment-form__input payment-form__input_layout-grid" id="iPaymentBIK" type="text" name="askBIK">
-        <label class="payment-form__label payment-form__label_layout-grid" for="iPaymentNumber">Номер счёта</label>
-        <input class="payment-form__input payment-form__input_layout-grid" id="iPaymentNumber" type="text" name="askNumber">
-        <label class="payment-form__label payment-form__label_layout-grid" for="iPaymentNDS">За что</label>
-        <input class="payment-form__input payment-form__input_layout-grid" id="iPaymentNDS" type="text" name="askNDS">
-        <label class="payment-form__label payment-form__label_layout-grid" for="iPaymentAmount">Сколько</label>
-        <input class="payment-form__input payment-form__input_size_s" id="iPaymentAmount" type="text" name="askAmount">
+    <span
+        class="ask-for-payment__title">Создайте платёжку, а {{ company.name }} подпишет её у себя в интернет-банке</span>
+    <form class="payment-form payment-form_layout-grid" [formGroup]="this.askPayment" (ngSumbit)="onSubmit()">
+        <label class="payment-form__label payment-form__label_layout-grid" for="askWho">ИНН получателя</label>
+        <input
+            class="payment-form__input payment-form__input_layout-grid"
+            id="askWho"
+            type="text"
+            formControlName="askWho"
+            placeholder="ИНН или название плательщика">
+        <label class="payment-form__label payment-form__label_layout-grid" for="askBIK">БИК</label>
+        <input
+            class="payment-form__input payment-form__input_layout-grid"
+            id="askBIK"
+            type="text"
+            formControlName="askBIK">
+        <label class="payment-form__label payment-form__label_layout-grid" for="askNumber">Номер счёта</label>
+        <input
+            class="payment-form__input payment-form__input_layout-grid"
+            id="askNumber"
+            type="text"
+            formControlName="askNumber">
+        <label class="payment-form__label payment-form__label_layout-grid" for="askNDS">За что</label>
+        <input
+            class="payment-form__input payment-form__input_layout-grid"
+            id="askNDS"
+            type="text"
+            formControlName="askNDS">
+        <label class="payment-form__label payment-form__label_layout-grid" for="askAmount">Сколько</label>
+        <input
+            class="payment-form__input payment-form__input_size_s"
+            id="askAmount"
+            type="text"
+            formControlName="askAmount">
         <label class="payment-form__label payment-form__label_layout-grid">Номер телефона</label>
-        <input class="payment-form__input payment-form__input_size_s" type="text" placeholder="+ 7">
+        <input
+            class="payment-form__input payment-form__input_size_s"
+            type="tel"
+            formControlName="askTel"
+            placeholder="+ 7">
         <label class="payment-form__label payment-form__label_layout-grid">Эл. почта</label>
-        <input class="payment-form__input payment-form__input_size_m" type="email" placeholder="Для уведомлений об оплате">
-        <div class="payment-form__button-container payment-form__button-container_size_m payment-form__button-container__layout-grid">
+        <input
+            class="payment-form__input payment-form__input_size_m"
+            type="email"
+            formControlName="askEmail"
+            placeholder="Для уведомлений об оплате">
+        <div
+            class="payment-form__button-container
+                    payment-form__button-container_size_m
+                    payment-form__button-container__layout-grid"
+            [class.payment-form__button-container_disabled]="this.askPayment.invalid">
             <span class="payment-form__bg"></span>
-            <button class="payment-form__button" type="submit">
+            <button class="payment-form__button" type="submit" [disabled]="this.askPayment.invalid">
                 Создать платёж
             </button>
         </div>

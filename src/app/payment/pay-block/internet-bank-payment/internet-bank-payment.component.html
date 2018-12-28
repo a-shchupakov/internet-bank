@@ -1,19 +1,38 @@
 <div class="internet-bank-payment">
     <span class="internet-bank-payment__title">Сформируйте платёжку и загрузите её в свой банк для подписи</span>
-    <form class="payment-form payment-form_layout-grid" [formGroup]="this.internetPayment">
+    <form class="payment-form payment-form_layout-grid" [formGroup]="this.internetPayment" (ngSubmit)="onSubmit()">
         <label class="payment-form__label payment-form__label_layout-grid" for="iPaymentWho">От кого</label>
-        <input class="payment-form__input payment-form__input_layout-grid" id="iPaymentWho" type="text" name="askWho" placeholder="ИНН или название плательщика">
+        <input class="payment-form__input payment-form__input_layout-grid"
+               id="iPaymentWho"
+               type="text"
+               formControlName="iPaymentWho"
+               placeholder="ИНН или название плательщика">
         <label class="payment-form__label payment-form__label_layout-grid" for="iPaymentBIK">БИК</label>
-        <input class="payment-form__input payment-form__input_layout-grid" id="iPaymentBIK" type="text" name="askBIK">
+        <input class="payment-form__input payment-form__input_layout-grid"
+               id="iPaymentBIK"
+               type="text"
+               formControlName="iPaymentBIK">
         <label class="payment-form__label payment-form__label_layout-grid" for="iPaymentNumber">Номер счёта</label>
-        <input class="payment-form__input payment-form__input_layout-grid" id="iPaymentNumber" type="text" name="askNumber">
+        <input class="payment-form__input payment-form__input_layout-grid"
+               id="iPaymentNumber"
+               type="text"
+               formControlName="iPaymentNumber">
         <label class="payment-form__label payment-form__label_layout-grid" for="iPaymentNDS">За что</label>
-        <input class="payment-form__input payment-form__input_layout-grid" id="iPaymentNDS" type="text" name="askNDS">
+        <input class="payment-form__input payment-form__input_layout-grid"
+               id="iPaymentNDS"
+               type="text"
+               formControlName="iPaymentNDS">
         <label class="payment-form__label payment-form__label_layout-grid" for="iPaymentAmount">Сколько</label>
-        <input class="payment-form__input payment-form__input_size_s" id="iPaymentAmount" type="text" name="askAmount">
-        <div class="payment-form__button-container payment-form__button-container_size_l payment-form__button-container__layout-grid">
+        <input class="payment-form__input payment-form__input_size_s"
+               id="iPaymentAmount"
+               type="text"
+               formControlName="iPaymentAmount">
+        <div class="payment-form__button-container
+                    payment-form__button-container_size_l
+                    payment-form__button-container__layout-grid"
+             [class.payment-form__button-container_disabled]="this.internetPayment.invalid">
             <span class="payment-form__bg"></span>
-            <button class="payment-form__button" type="submit">
+            <button class="payment-form__button" type="submit" [disabled]="this.internetPayment.invalid">
                 Получить файл для интернет-банка
             </button>
         </div>
