@@ -37,6 +37,7 @@
     font-size: 15px;
 
     background-color: inherit;
+    transition: border .4s;
 }
 
 .payment-form__input::placeholder
@@ -62,6 +63,7 @@
     border: none;
     font-size: 15px;
     font-weight: bold;
+    padding: 0;
 }
 
 .payment-form__button-container
@@ -117,11 +119,25 @@
     right: 0;
     top: 0;
     display: block;
-    height: 16px;
+    height: 30%;
     border-left: 2px solid;
     border-right: 2px solid;
     border-top: 2px solid;
     border-color: #000;
+
+    transition: border .3s;
+}
+
+.payment-form__button-container_disabled
+{
+    /*
+        TODO: Add styles for disabled button
+    */
+}
+
+.payment-form__button-container_disabled:hover
+{
+    opacity: .6;
 }
 
 .payment-form__button-container::before
@@ -132,11 +148,13 @@
     right: 0;
     bottom: 0;
     display: block;
-    height: 16px;
+    height: 30%;
     border-left: 2px solid;
     border-right: 2px solid;
     border-bottom: 2px solid;
     border-color: #000;
+
+    transition: border .3s;
 }
 
 .payment-form__button
@@ -152,6 +170,12 @@
     outline: none;
 }
 
+.payment-form__button:disabled
+{
+    color: initial;
+    cursor: default;
+}
+
 .payment-form__input_size_s
 {
     max-width: 150px;
@@ -161,3 +185,14 @@
 {
     max-width: 220px;
 }
+
+.payment-form__input.ng-valid.ng-touched
+{
+    border-color: #7fad74;
+}
+
+.payment-form__input.ng-invalid.ng-touched
+{
+    border-color: #ff7160;
+}
+
