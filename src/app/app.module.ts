@@ -10,6 +10,7 @@ import { PayBlockComponent } from './payment/pay-block/pay-block.component';
 import { AskForPaymentBlockComponent } from './payment/ask-for-payment-block/ask-for-payment-block.component';
 import { CardPaymentComponent } from './payment/pay-block/card-payment/card-payment.component';
 import { InternetBankPaymentComponent } from './payment/pay-block/internet-bank-payment/internet-bank-payment.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -24,7 +25,8 @@ import { InternetBankPaymentComponent } from './payment/pay-block/internet-bank-
         InternetBankPaymentComponent
     ],
     imports: [
-        BrowserModule
+        BrowserModule,
+        ReactiveFormsModule
     ],
     providers: [],
     bootstrap: [AppComponent]

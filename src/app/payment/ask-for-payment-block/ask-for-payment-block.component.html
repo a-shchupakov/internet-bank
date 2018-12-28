@@ -1,6 +1,6 @@
 <div class="ask-for-payment">
     <span class="ask-for-payment__title">Создайте платёжку, а {{ company.name }} подпишет её у себя в интернет-банке</span>
-    <form class="payment-form payment-form_layout-grid">
+    <form class="payment-form payment-form_layout-grid" [formGroup]="this.askPayment">
         <label class="payment-form__label payment-form__label_layout-grid" for="iPaymentWho">ИНН получателя</label>
         <input class="payment-form__input payment-form__input_layout-grid" id="iPaymentWho" type="text" name="askWho" placeholder="ИНН или название плательщика">
         <label class="payment-form__label payment-form__label_layout-grid" for="iPaymentBIK">БИК</label>
@@ -17,7 +17,7 @@
         <input class="payment-form__input payment-form__input_size_m" type="email" placeholder="Для уведомлений об оплате">
         <div class="payment-form__button-container payment-form__button-container_size_m payment-form__button-container__layout-grid">
             <span class="payment-form__bg"></span>
-            <button class="payment-form__button" type="button">
+            <button class="payment-form__button" type="submit">
                 Создать платёж
             </button>
         </div>
