@@ -30,7 +30,7 @@
 .payment-form__input
 {
     border: none;
-    border-bottom: 2px solid #dbdbdb;
+    border-bottom: 1px solid #ccc;
     padding: 0 15px;
     margin-bottom: 20px;
     height: 25px;
