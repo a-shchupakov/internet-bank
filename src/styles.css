@@ -51,3 +51,43 @@
     height: 2px;
     background-color: grey;
 }
+
+.nav-link-list
+{
+    list-style-type: none;
+    display: flex;
+    flex-flow: row nowrap;
+    margin: 30px 0;
+    padding: 0;
+}
+
+.nav-link-list__item
+{
+    margin-right: 30px;
+    color: #0054b9;
+    cursor: pointer;
+}
+
+.nav-link-list__item_active
+{
+    color: #000;
+    cursor: default;
+}
+
+.nav-link-list__item_major
+{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.nav-link-list__item_minor
+{
+    font-size: 14px;
+    font-weight: bold;
+    padding: 8px;
+}
+
+.nav-link-list__item_active.nav-link-list__item_bg_gray
+{
+    background-color: #f8f8f8;
+}

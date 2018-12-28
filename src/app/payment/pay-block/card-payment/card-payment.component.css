@@ -12,14 +12,14 @@
 
     padding: 15px;
     border-radius: 10px;
-    background-color: #fcfcfc;
+    background-color: #f8f8f8;
     box-shadow: 0 10px 12px 1px #ccc;
 }
 
 .card-info_size_m
 {
     width: 350px;
-    height: 190px;
+    height: 175px;
 }
 
 .card-info__icon-list
