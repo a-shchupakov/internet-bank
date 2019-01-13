@@ -1,10 +1,6 @@
-import { Injectable } from '@angular/core';
 import {Company} from './company-header/company.model';
 import {CompanyPromotion} from './company-info/company-promotion/company-promotion.model';
 
-@Injectable({
-    providedIn: 'root'
-})
 export class CompanyService {
     company: Company = new Company(
         'Индивидуальный предприниматель Швецова Мария Валерьевна',

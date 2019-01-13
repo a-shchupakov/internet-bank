@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {CardModel} from '../../../shared/card.model';
+import {HttpService} from '../../../http.service';
 
 @Component({
     selector: 'app-card-payment',
@@ -12,7 +14,7 @@ export class CardPaymentComponent implements OnInit {
     cardExpiresRegex = '\\d{2}/\\d{2}';
     cardCVCRegex = /^\d{3}$/;
 
-    constructor() {
+    constructor(private server: HttpService) {
     }
 
     ngOnInit() {
@@ -52,6 +54,14 @@ export class CardPaymentComponent implements OnInit {
     }
 
     onSubmit() {
-        console.log(this.cardPayment);
+        const cardNumber = this.cardPayment.get('cardInfo.cardNumber').value;
+        const cardExpires = this.cardPayment.get('cardInfo.cardExpires').value;
+        const cardCVC = this.cardPayment.get('cardInfo.cardCVC').value;
+        const amount = this.cardPayment.get('paymentInfo.paymentAmount').value;
+        const comment = this.cardPayment.get('paymentInfo.paymentComment').value;
+        const email = this.cardPayment.get('paymentInfo.paymentEmail').value;
+
+        const card = new CardModel(cardNumber, cardExpires, cardCVC, amount, comment, email, true, '');
+        this.server.createCardPayment(card).subscribe();
     }
 }

@@ -1,7 +1,7 @@
 <div class="ask-for-payment">
     <span
         class="ask-for-payment__title">Создайте платёжку, а {{ company.name }} подпишет её у себя в интернет-банке</span>
-    <form class="payment-form payment-form_layout-grid" [formGroup]="this.askPayment" (ngSumbit)="onSubmit()">
+    <form class="payment-form payment-form_layout-grid" [formGroup]="this.askPayment">
         <label class="payment-form__label payment-form__label_layout-grid" for="askWho">ИНН получателя</label>
         <input
             class="payment-form__input payment-form__input_layout-grid"
@@ -49,11 +49,11 @@
             placeholder="Для уведомлений об оплате">
         <div
             class="payment-form__button-container
-                    payment-form__button-container_size_m
-                    payment-form__button-container__layout-grid"
+                   payment-form__button-container_size_m
+                   payment-form__button-container__layout-grid"
             [class.payment-form__button-container_disabled]="this.askPayment.invalid">
             <span class="payment-form__bg"></span>
-            <button class="payment-form__button" type="submit" [disabled]="this.askPayment.invalid">
+            <button class="payment-form__button" type="submit" [disabled]="this.askPayment.invalid" (click)="onSubmit()">
                 Создать платёж
             </button>
         </div>
