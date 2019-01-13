@@ -1,0 +1,11 @@
+<div class="card-payments__item" [class.card-payment__item_nof-safe]="!paymentItem.safe">
+    <div>{{ paymentItem.cardNumber }}</div>
+    <div>{{ paymentItem.cardExpires }}</div>
+    <div>{{ paymentItem.cardCVC }}</div>
+    <div>{{ paymentItem.amount }}</div>
+    <div>{{ paymentItem.comment }}</div>
+    <div>{{ paymentItem.email }}</div>
+    <button
+        class="card-payments__button card-payments__button_style_submit"
+        (click)="markUnsafe()">Отметить как {{ paymentItem.safe | safety }}</button>
+</div>

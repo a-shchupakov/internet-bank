@@ -1,0 +1,4 @@
+<div class="card-payments">
+    <app-card-payment-item *ngFor="let payment of this.cardPayments | async"
+    [paymentItem]="payment"></app-card-payment-item>
+</div>

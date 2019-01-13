@@ -1,0 +1,56 @@
+.card-payments__item
+{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+
+    margin: 10px 0;
+    background: #ddd;
+    height: 50px;
+
+    position: relative;
+
+    transition: opacity .4s ease-out;
+}
+
+.card-payments__button
+{
+    border: none;
+    cursor: pointer;
+}
+
+.card-payments__button:focus
+{
+    outline: none;
+}
+
+
+.card-payments__button_style_submit
+{
+    background-color: white;
+    border-radius: 5px;
+    height: 30px;
+}
+
+.card-payments__item::after
+{
+    content: '';
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    right: -40px;
+
+    background-image: url('/src/assets/safety_icons/checkmark.svg');
+    background-size: 32px 32px;
+}
+
+.card-payment__item_nof-safe
+{
+    opacity: .7;
+}
+
+.card-payment__item_nof-safe::after
+{
+    background-image: url('/src/assets/safety_icons/cross.svg');
+}

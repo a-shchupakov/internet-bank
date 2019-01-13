@@ -1,0 +1,15 @@
+.asked-payments__item
+{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+
+    margin: 10px 0;
+    background: #ddd;
+    height: 50px;
+
+    position: relative;
+
+    transition: opacity .4s ease-out;
+}
