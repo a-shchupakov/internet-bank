@@ -68,6 +68,11 @@
     cursor: pointer;
 }
 
+.nav-link-list__item:focus
+{
+    outline: none;
+}
+
 .nav-link-list__item_active
 {
     color: #000;
