@@ -20,6 +20,12 @@ import { AskedPaymentsComponent } from './admin-panel/asked-payments/asked-payme
 import { CardPaymentItemComponent } from './admin-panel/card-payments/card-payment-item/card-payment-item.component';
 import { SafetyPipe } from './shared/safety.pipe';
 import { AskPaymentItemComponent } from './admin-panel/asked-payments/ask-payment-item/ask-payment-item.component';
+import {Routes} from '@angular/router';
+import { InternetBankComponent } from './internet-bank/internet-bank.component';
+
+const appRoutes: Routes = [
+
+];
 
 @NgModule({
     declarations: [
@@ -37,7 +43,8 @@ import { AskPaymentItemComponent } from './admin-panel/asked-payments/ask-paymen
         AskedPaymentsComponent,
         CardPaymentItemComponent,
         SafetyPipe,
-        AskPaymentItemComponent
+        AskPaymentItemComponent,
+        InternetBankComponent
     ],
     imports: [
         BrowserModule,
