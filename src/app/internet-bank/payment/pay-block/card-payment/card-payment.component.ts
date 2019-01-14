@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {CardModel} from '../../../shared/card.model';
-import {HttpService} from '../../../http.service';
+import {HttpService} from '../../../../http.service';
+import {CardModel} from '../../../../shared/card.model';
 
 @Component({
     selector: 'app-card-payment',

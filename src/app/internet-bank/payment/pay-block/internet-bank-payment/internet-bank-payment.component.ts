@@ -38,6 +38,6 @@ export class InternetBankPaymentComponent implements OnInit {
     }
 
     onSubmit() {
-        console.log(this.internetPayment)
+        console.log(this.internetPayment);
     }
 }

@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {Company} from '../../company-header/company.model';
-import {CompanyService} from '../../company.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {CardModel} from '../../shared/card.model';
-import {HttpService} from '../../http.service';
-import {AskModel} from '../../shared/ask.model';
+import {HttpService} from '../../../http.service';
+import {CompanyService} from '../../../company.service';
+import {Company} from '../../company/company-header/company.model';
+import {AskModel} from '../../../shared/ask.model';
 
 @Component({
   selector: 'app-ask-for-payment-block',

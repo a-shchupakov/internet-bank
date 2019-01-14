@@ -1,5 +1,6 @@
-import {Company} from './company-header/company.model';
-import {CompanyPromotion} from './company-info/company-promotion/company-promotion.model';
+import {Company} from './internet-bank/company/company-header/company.model';
+import {CompanyPromotion} from './internet-bank/company/company-info/company-promotion/company-promotion.model';
+
 
 export class CompanyService {
     company: Company = new Company(
