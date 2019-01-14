@@ -47,12 +47,19 @@
 {
     text-decoration: none;
     cursor: pointer;
+
+    transition: color .2s linear;
 }
 
 .personal-data__link_blue,
 .personal-data__link_blue:visited
 {
     color: #0054b9;
+}
+
+.personal-data__link:hover
+{
+    color: #593763;
 }
 
 .personal-data__link_gray,
