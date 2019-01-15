@@ -2,31 +2,61 @@
     <span class="internet-bank-payment__title">Сформируйте платёжку и загрузите её в свой банк для подписи</span>
     <form class="payment-form payment-form_layout-grid" [formGroup]="this.internetPayment" (ngSubmit)="onSubmit()">
         <label class="payment-form__label payment-form__label_layout-grid" for="iPaymentWho">От кого</label>
+        <div class="payment-form__input-container"
+             [class.ng-pending]="this.internetPayment.get('iPaymentWho').pending"
+             [class.ng-valid]="this.internetPayment.get('iPaymentWho').valid"
+             [class.ng-invalid]="this.internetPayment.get('iPaymentWho').invalid"
+             [class.ng-touched]="this.internetPayment.get('iPaymentWho').touched">
         <input class="payment-form__input payment-form__input_layout-grid"
                id="iPaymentWho"
                type="text"
                formControlName="iPaymentWho"
                placeholder="ИНН или название плательщика">
+        </div>
         <label class="payment-form__label payment-form__label_layout-grid" for="iPaymentBIK">БИК</label>
-        <input class="payment-form__input payment-form__input_layout-grid"
-               id="iPaymentBIK"
-               type="text"
-               formControlName="iPaymentBIK">
+        <div class="payment-form__input-container"
+             [class.ng-pending]="this.internetPayment.get('iPaymentBIK').pending"
+             [class.ng-valid]="this.internetPayment.get('iPaymentBIK').valid"
+             [class.ng-invalid]="this.internetPayment.get('iPaymentBIK').invalid"
+             [class.ng-touched]="this.internetPayment.get('iPaymentBIK').touched">
+            <input class="payment-form__input payment-form__input_layout-grid"
+                   id="iPaymentBIK"
+                   type="text"
+                   formControlName="iPaymentBIK">
+        </div>
         <label class="payment-form__label payment-form__label_layout-grid" for="iPaymentNumber">Номер счёта</label>
-        <input class="payment-form__input payment-form__input_layout-grid"
-               id="iPaymentNumber"
-               type="text"
-               formControlName="iPaymentNumber">
+        <div class="payment-form__input-container"
+             [class.ng-pending]="this.internetPayment.get('iPaymentNumber').pending"
+             [class.ng-valid]="this.internetPayment.get('iPaymentNumber').valid"
+             [class.ng-invalid]="this.internetPayment.get('iPaymentNumber').invalid"
+             [class.ng-touched]="this.internetPayment.get('iPaymentNumber').touched">
+            <input class="payment-form__input payment-form__input_layout-grid"
+                   id="iPaymentNumber"
+                   type="text"
+                   formControlName="iPaymentNumber">
+        </div>
         <label class="payment-form__label payment-form__label_layout-grid" for="iPaymentNDS">За что</label>
-        <input class="payment-form__input payment-form__input_layout-grid"
-               id="iPaymentNDS"
-               type="text"
-               formControlName="iPaymentNDS">
+        <div class="payment-form__input-container"
+             [class.ng-pending]="this.internetPayment.get('iPaymentNDS').pending"
+             [class.ng-valid]="this.internetPayment.get('iPaymentNDS').valid"
+             [class.ng-invalid]="this.internetPayment.get('iPaymentNDS').invalid"
+             [class.ng-touched]="this.internetPayment.get('iPaymentNDS').touched">
+            <input class="payment-form__input payment-form__input_layout-grid"
+                   id="iPaymentNDS"
+                   type="text"
+                   formControlName="iPaymentNDS">
+        </div>
         <label class="payment-form__label payment-form__label_layout-grid" for="iPaymentAmount">Сколько</label>
-        <input class="payment-form__input payment-form__input_size_s"
-               id="iPaymentAmount"
-               type="text"
-               formControlName="iPaymentAmount">
+        <div class="payment-form__input-container"
+             [class.ng-pending]="this.internetPayment.get('iPaymentAmount').pending"
+             [class.ng-valid]="this.internetPayment.get('iPaymentAmount').valid"
+             [class.ng-invalid]="this.internetPayment.get('iPaymentAmount').invalid"
+             [class.ng-touched]="this.internetPayment.get('iPaymentAmount').touched">
+            <input class="payment-form__input payment-form__input_size_s"
+                   id="iPaymentAmount"
+                   type="text"
+                   formControlName="iPaymentAmount">
+        </div>
         <div class="payment-form__button-container
                     payment-form__button-container_size_l
                     payment-form__button-container__layout-grid"

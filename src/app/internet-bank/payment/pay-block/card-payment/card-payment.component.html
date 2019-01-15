@@ -6,44 +6,80 @@
                 <span class="card-info__icon-item card-info__maestro"></span>
                 <span class="card-info__icon-item card-info__mc"></span>
             </div>
-            <input
-                class="card-info__number payment-form__input"
+            <div class="card-info__number payment-form__input-container"
+                 [class.ng-pending]="this.cardPayment.get('cardInfo.cardNumber').pending"
+                 [class.ng-valid]="this.cardPayment.get('cardInfo.cardNumber').valid"
+                 [class.ng-invalid]="this.cardPayment.get('cardInfo.cardNumber').invalid"
+                 [class.ng-touched]="this.cardPayment.get('cardInfo.cardNumber').touched">
+                <input
+                class="payment-form__input"
                 type="text"
                 formControlName="cardNumber"
                 placeholder="Номер карты">
-            <input
-                class="card-info__expires payment-form__input"
-                type="text"
-                formControlName="cardExpires"
-                placeholder="ММ/ГГ">
-            <input
-                class="card-info__cvc payment-form__input"
-                type="text"
-                formControlName="cardCVC"
-                placeholder="CVC">
+            </div>
+            <div class="card-info__expires payment-form__input-container"
+                 [class.ng-pending]="this.cardPayment.get('cardInfo.cardExpires').pending"
+                 [class.ng-valid]="this.cardPayment.get('cardInfo.cardExpires').valid"
+                 [class.ng-invalid]="this.cardPayment.get('cardInfo.cardExpires').invalid"
+                 [class.ng-touched]="this.cardPayment.get('cardInfo.cardExpires').touched">
+                <input
+                    class="payment-form__input"
+                    type="text"
+                    formControlName="cardExpires"
+                    placeholder="ММ/ГГ">
+            </div>
+            <div class="card-info__cvc payment-form__input-container"
+                 [class.ng-pending]="this.cardPayment.get('cardInfo.cardCVC').pending"
+                 [class.ng-valid]="this.cardPayment.get('cardInfo.cardCVC').valid"
+                 [class.ng-invalid]="this.cardPayment.get('cardInfo.cardCVC').invalid"
+                 [class.ng-touched]="this.cardPayment.get('cardInfo.cardCVC').touched">
+                <input
+                    class="payment-form__input"
+                    type="text"
+                    formControlName="cardCVC"
+                    placeholder="CVC">
+            </div>
         </div>
         <div class="card-payment__item payment-info" formGroupName="paymentInfo">
             <label class="payment-form__label" for="paymentAmount">Сумма</label>
-            <input
-                class="payment-info__amount payment-form__input"
-                id="paymentAmount"
-                type="text"
-                formControlName="paymentAmount"
-                placeholder="от 1000 до 75000">
+            <div class="payment-form__input-container"
+                 [class.ng-pending]="this.cardPayment.get('paymentInfo.paymentAmount').pending"
+                 [class.ng-valid]="this.cardPayment.get('paymentInfo.paymentAmount').valid"
+                 [class.ng-invalid]="this.cardPayment.get('paymentInfo.paymentAmount').invalid"
+                 [class.ng-touched]="this.cardPayment.get('paymentInfo.paymentAmount').touched">
+                <input
+                    class="payment-info__amount payment-form__input"
+                    id="paymentAmount"
+                    type="text"
+                    formControlName="paymentAmount"
+                    placeholder="от 1000 до 75000">
+            </div>
             <label class="payment-form__label" for="paymentComment">Комментарий</label>
-            <input
-                class="payment-info__comment payment-form__input"
-                id="paymentComment"
-                type="text"
-                formControlName="paymentComment"
-                placeholder="До 150 символов">
+            <div class="payment-form__input-container"
+                 [class.ng-pending]="this.cardPayment.get('paymentInfo.paymentComment').pending"
+                 [class.ng-valid]="this.cardPayment.get('paymentInfo.paymentComment').valid"
+                 [class.ng-invalid]="this.cardPayment.get('paymentInfo.paymentComment').invalid"
+                 [class.ng-touched]="this.cardPayment.get('paymentInfo.paymentComment').touched">
+                <input
+                    class="payment-info__comment payment-form__input"
+                    id="paymentComment"
+                    type="text"
+                    formControlName="paymentComment"
+                    placeholder="До 150 символов">
+            </div>
             <label class="payment-form__label" for="paymentEmail">Ваша эл. почта</label>
-            <input
-                class="payment-info__email payment-form__input"
-                id="paymentEmail"
-                type="email"
-                formControlName="paymentEmail"
-                placeholder="Для квитанции об оплате">
+            <div class="payment-form__input-container"
+                 [class.ng-pending]="this.cardPayment.get('paymentInfo.paymentEmail').pending"
+                 [class.ng-valid]="this.cardPayment.get('paymentInfo.paymentEmail').valid"
+                 [class.ng-invalid]="this.cardPayment.get('paymentInfo.paymentEmail').invalid"
+                 [class.ng-touched]="this.cardPayment.get('paymentInfo.paymentEmail').touched">
+                <input
+                    class="payment-info__email payment-form__input"
+                    id="paymentEmail"
+                    type="email"
+                    formControlName="paymentEmail"
+                    placeholder="Для квитанции об оплате">
+            </div>
             <div
                 class="payment-form__button-container payment-form__button-container_size_s"
                 [class.payment-form__button-container_disabled]="this.cardPayment.invalid">

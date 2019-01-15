@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {HttpService} from '../../../../http.service';
 import {CardModel} from '../../../../shared/card.model';
+import {ValidationService} from '../../../../shared/validation.service';
 
 @Component({
     selector: 'app-card-payment',
@@ -14,7 +15,7 @@ export class CardPaymentComponent implements OnInit {
     cardExpiresRegex = '\\d{2}/\\d{2}';
     cardCVCRegex = /^\d{3}$/;
 
-    constructor(private server: HttpService) {
+    constructor(private server: HttpService, private validation: ValidationService) {
     }
 
     ngOnInit() {
@@ -24,16 +25,22 @@ export class CardPaymentComponent implements OnInit {
                     [
                         Validators.required,
                         Validators.pattern(this.cardNumberRegex)
+                    ], [
+                        this.validation.validateTrue.bind(this.validation)
                     ]),
                 cardExpires: new FormControl('33/33',
                     [
                         Validators.required,
                         Validators.pattern(this.cardExpiresRegex)
+                    ], [
+                        this.validation.validateTrue.bind(this.validation)
                     ]),
                 cardCVC: new FormControl('333',
                     [
                         Validators.required,
                         Validators.pattern(this.cardCVCRegex)
+                    ], [
+                        this.validation.validateTrue.bind(this.validation)
                     ])
             }),
             paymentInfo: new FormGroup({
@@ -42,12 +49,16 @@ export class CardPaymentComponent implements OnInit {
                         Validators.required,
                         Validators.max(75000),
                         Validators.min(1000)
+                    ], [
+                        this.validation.validateTrue.bind(this.validation)
                     ]),
                 paymentComment: new FormControl(null, Validators.maxLength(150)),
                 paymentEmail: new FormControl('test@te.com',
                     [
                         Validators.required,
                         Validators.email
+                    ], [
+                        this.validation.validateTrue.bind(this.validation)
                     ])
             })
         });

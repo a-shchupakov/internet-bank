@@ -22,6 +22,7 @@ import { PayBlockComponent } from './internet-bank/payment/pay-block/pay-block.c
 import { AskForPaymentBlockComponent } from './internet-bank/payment/ask-for-payment-block/ask-for-payment-block.component';
 import { CardPaymentComponent } from './internet-bank/payment/pay-block/card-payment/card-payment.component';
 import { InternetBankPaymentComponent } from './internet-bank/payment/pay-block/internet-bank-payment/internet-bank-payment.component';
+import {ValidationService} from './shared/validation.service';
 
 const appRoutes: Routes = [
     { path: '', redirectTo: 'bank', pathMatch: 'full' },
@@ -63,7 +64,7 @@ const appRoutes: Routes = [
         HttpClientModule,
         RouterModule.forRoot(appRoutes)
     ],
-    providers: [CompanyService, HttpService],
+    providers: [CompanyService, HttpService, ValidationService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

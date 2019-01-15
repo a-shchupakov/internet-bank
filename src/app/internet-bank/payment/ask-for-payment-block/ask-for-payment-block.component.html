@@ -3,50 +3,92 @@
         class="ask-for-payment__title">Создайте платёжку, а {{ company.name }} подпишет её у себя в интернет-банке</span>
     <form class="payment-form payment-form_layout-grid" [formGroup]="this.askPayment">
         <label class="payment-form__label payment-form__label_layout-grid" for="askWho">ИНН получателя</label>
-        <input
-            class="payment-form__input payment-form__input_layout-grid"
-            id="askWho"
-            type="text"
-            formControlName="askWho"
-            placeholder="ИНН или название плательщика">
+        <div class="payment-form__input-container"
+             [class.ng-pending]="this.askPayment.get('askWho').pending"
+             [class.ng-valid]="this.askPayment.get('askWho').valid"
+             [class.ng-invalid]="this.askPayment.get('askWho').invalid"
+             [class.ng-touched]="this.askPayment.get('askWho').touched">
+            <input
+                class="payment-form__input payment-form__input_layout-grid"
+                id="askWho"
+                type="text"
+                formControlName="askWho"
+                placeholder="ИНН или название плательщика">
+        </div>
         <label class="payment-form__label payment-form__label_layout-grid" for="askBIK">БИК</label>
-        <input
-            class="payment-form__input payment-form__input_layout-grid"
-            id="askBIK"
-            type="text"
-            formControlName="askBIK">
+        <div class="payment-form__input-container"
+             [class.ng-pending]="this.askPayment.get('askBIK').pending"
+             [class.ng-valid]="this.askPayment.get('askBIK').valid"
+             [class.ng-invalid]="this.askPayment.get('askBIK').invalid"
+             [class.ng-touched]="this.askPayment.get('askBIK').touched">
+            <input
+                class="payment-form__input payment-form__input_layout-grid"
+                id="askBIK"
+                type="text"
+                formControlName="askBIK">
+        </div>
         <label class="payment-form__label payment-form__label_layout-grid" for="askNumber">Номер счёта</label>
-        <input
-            class="payment-form__input payment-form__input_layout-grid"
-            id="askNumber"
-            type="text"
-            formControlName="askNumber">
+        <div class="payment-form__input-container"
+             [class.ng-pending]="this.askPayment.get('askNumber').pending"
+             [class.ng-valid]="this.askPayment.get('askNumber').valid"
+             [class.ng-invalid]="this.askPayment.get('askNumber').invalid"
+             [class.ng-touched]="this.askPayment.get('askNumber').touched">
+            <input
+                class="payment-form__input payment-form__input_layout-grid"
+                id="askNumber"
+                type="text"
+                formControlName="askNumber">
+        </div>
         <label class="payment-form__label payment-form__label_layout-grid" for="askNDS">За что</label>
-        <input
-            class="payment-form__input payment-form__input_layout-grid"
-            id="askNDS"
-            type="text"
-            formControlName="askNDS">
+        <div class="payment-form__input-container"
+             [class.ng-pending]="this.askPayment.get('askNDS').pending"
+             [class.ng-valid]="this.askPayment.get('askNDS').valid"
+             [class.ng-invalid]="this.askPayment.get('askNDS').invalid"
+             [class.ng-touched]="this.askPayment.get('askNDS').touched">
+            <input
+                class="payment-form__input payment-form__input_layout-grid"
+                id="askNDS"
+                type="text"
+                formControlName="askNDS">
+        </div>
         <label class="payment-form__label payment-form__label_layout-grid" for="askAmount">Сколько</label>
-        <input
-            class="payment-form__input payment-form__input_size_s"
-            id="askAmount"
-            type="text"
-            formControlName="askAmount">
+        <div class="payment-form__input-container"
+             [class.ng-pending]="this.askPayment.get('askAmount').pending"
+             [class.ng-valid]="this.askPayment.get('askAmount').valid"
+             [class.ng-invalid]="this.askPayment.get('askAmount').invalid"
+             [class.ng-touched]="this.askPayment.get('askAmount').touched">
+            <input
+                class="payment-form__input payment-form__input_size_s"
+                id="askAmount"
+                type="text"
+                formControlName="askAmount">
+        </div>
         <label class="payment-form__label payment-form__label_layout-grid" for="askTel">Номер телефона</label>
-        <input
-            class="payment-form__input payment-form__input_size_s"
-            id="askTel"
-            type="tel"
-            formControlName="askTel"
-            placeholder="+ 7">
+        <div class="payment-form__input-container"
+             [class.ng-pending]="this.askPayment.get('askTel').pending"
+             [class.ng-valid]="this.askPayment.get('askTel').valid"
+             [class.ng-invalid]="this.askPayment.get('askTel').invalid"
+             [class.ng-touched]="this.askPayment.get('askTel').touched">
+            <input
+                class="payment-form__input payment-form__input_size_s"
+                id="askTel"
+                type="tel"
+                formControlName="askTel"
+                placeholder="+ 7">
+        </div>
         <label class="payment-form__label payment-form__label_layout-grid" for="askEmail">Эл. почта</label>
-        <input
-            class="payment-form__input payment-form__input_size_m"
-            id="askEmail"
-            type="email"
-            formControlName="askEmail"
-            placeholder="Для уведомлений об оплате">
+        <div class="payment-form__input-container"
+             [class.ng-pending]="this.askPayment.get('askEmail').pending"
+             [class.ng-valid]="this.askPayment.get('askEmail').valid"
+             [class.ng-invalid]="this.askPayment.get('askEmail').invalid"
+             [class.ng-touched]="this.askPayment.get('askEmail').touched">
+            <input
+                class="payment-form__input payment-form__input_size_m"
+                id="askEmail"
+                type="email"
+                formControlName="askEmail"
+                placeholder="Для уведомлений об оплате">
+        </div>
         <div
             class="payment-form__button-container
                    payment-form__button-container_size_m

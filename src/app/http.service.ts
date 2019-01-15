@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {CardModel} from './shared/card.model';
 import {AskModel} from './shared/ask.model';
+import {ValidationErrors} from '@angular/forms';
 
 @Injectable()
 export class HttpService {
@@ -10,6 +11,7 @@ export class HttpService {
     private serverUrl = 'http://127.0.0.1:5000';
     private cardsApiUrl = 'http://127.0.0.1:5000/bank/api/card-payments/';
     private askApiUrl = 'http://127.0.0.1:5000/bank/api/ask-payments/';
+    private validationApiUrl = 'http://127.0.0.1:5000/validation/true/';
 
     createCardPayment(cardPayment: CardModel) {
         return this.http.post<CardModel>(this.cardsApiUrl, cardPayment);
@@ -29,5 +31,9 @@ export class HttpService {
 
     getAskedPayments() {
         return this.http.get<AskModel[]>(this.askApiUrl);
+    }
+
+    validate() {
+        return this.http.get<ValidationErrors>(this.validationApiUrl);
     }
 }

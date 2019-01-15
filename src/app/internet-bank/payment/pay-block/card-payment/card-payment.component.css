@@ -56,17 +56,17 @@
 .card-info__number
 {
     grid-area: number;
-    width: 150px;
+    width: 180px;
 }
 
 .card-info__expires
 {
-    width: 48px;
+    width: 78px;
 }
 
 .card-info__cvc
 {
-    width: 32px;
+    width: 62px;
 }
 
 .payment-info
