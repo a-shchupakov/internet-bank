@@ -4,6 +4,7 @@ import {HttpService} from '../../../http.service';
 import {CompanyService} from '../../../company.service';
 import {Company} from '../../company/company-header/company.model';
 import {AskModel} from '../../../shared/ask.model';
+import {ValidationService} from '../../../shared/validation.service';
 
 @Component({
   selector: 'app-ask-for-payment-block',
@@ -14,7 +15,7 @@ export class AskForPaymentBlockComponent implements OnInit {
     company: Company;
     askPayment: FormGroup;
 
-    constructor(private personService: CompanyService, private server: HttpService) { }
+    constructor(private personService: CompanyService, private server: HttpService, private validation: ValidationService) { }
 
     ngOnInit() {
         this.company = this.personService.getPerson();
@@ -22,29 +23,43 @@ export class AskForPaymentBlockComponent implements OnInit {
             askWho: new FormControl('3333444400',
                 [
                     Validators.required,
+                ], [
+                    this.validation.validateINN.bind(this)
                 ]),
             askBIK: new FormControl('123456789',
                 [
                     Validators.required,
+                ], [
+                    this.validation.validateBIK.bind(this)
                 ]),
             askNumber: new FormControl('99223344556677112233',
                 [
                     Validators.required,
+                ], [
+                    this.validation.validateAccNumber.bind(this)
                 ]),
             askNDS: new FormControl('бла бла бла НДС 18%',
                 [
                     Validators.required,
+                ], [
+                    this.validation.validateNDS.bind(this)
                 ]),
             askAmount: new FormControl(12000,
                 [
                     Validators.required,
+                ], [
+                    this.validation.validateAmount.bind(this)
                 ]),
             askTel: new FormControl('89223322990',
                 [Validators.required,
+                ], [
+                    this.validation.validateTelNumber.bind(this)
                 ]),
             askEmail: new FormControl('email@domen.com',
                 [
                     Validators.required, Validators.email
+                ], [
+                    this.validation.validateEmail.bind(this)
                 ]),
         });
     }

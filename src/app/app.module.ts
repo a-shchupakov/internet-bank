@@ -26,7 +26,11 @@ import {ValidationService} from './shared/validation.service';
 
 const appRoutes: Routes = [
     { path: '', redirectTo: 'bank', pathMatch: 'full' },
-    { path: 'admin', component: AdminPanelComponent },
+    { path: 'admin', component: AdminPanelComponent, children: [
+            { path: '', redirectTo: 'payments', pathMatch: 'full'},
+            { path: 'payments', component: CardPaymentsComponent },
+            { path: 'asked', component: AskedPaymentsComponent }
+        ]},
     { path: 'bank', component: InternetBankComponent, children: [
             { path: '', redirectTo: 'pay', pathMatch: 'full' },
             { path: 'ask', component: AskForPaymentBlockComponent },

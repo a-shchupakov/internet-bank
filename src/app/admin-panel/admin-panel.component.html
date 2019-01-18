@@ -1,4 +1,17 @@
 <div>
-    <app-card-payments></app-card-payments>
-    <app-asked-payments></app-asked-payments>
+    <ul class="nav-link-list">
+        <li
+            class="nav-link-list__item nav-link-list__item_major"
+            routerLink="payments"
+            routerLinkActive="nav-link-list__item_active">
+            Платежи
+        </li>
+        <li
+            class="nav-link-list__item nav-link-list__item_major"
+            routerLink="asked"
+            routerLinkActive="nav-link-list__item_active">
+            Запрошенные платежи
+        </li>
+    </ul>
+    <router-outlet></router-outlet>
 </div>

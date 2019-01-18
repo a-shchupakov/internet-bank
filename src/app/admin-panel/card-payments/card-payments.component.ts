@@ -13,4 +13,5 @@ export class CardPaymentsComponent implements OnInit {
     }
 
     ngOnInit() { }
+    //TODO: https://www.youtube.com/watch?v=Ppl64MY6FFc
 }

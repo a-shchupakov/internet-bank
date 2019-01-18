@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {ValidationService} from '../../../../shared/validation.service';
 
 @Component({
     selector: 'app-internet-bank-payment',
@@ -9,30 +10,45 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 export class InternetBankPaymentComponent implements OnInit {
     internetPayment: FormGroup;
 
-    constructor() {
+    constructor(private validation: ValidationService) {
     }
 
     ngOnInit() {
         this.internetPayment = new FormGroup({
-            iPaymentWho: new FormControl(null,
+            iPaymentWho: new FormControl('',
                 [
                     Validators.required
+                ],
+                [
+                    this.validation.validateINN.bind(this.validation)
                 ]),
             iPaymentBIK: new FormControl(null,
                 [
                     Validators.required
+                ],
+                [
+                    this.validation.validateBIK.bind(this.validation)
                 ]),
             iPaymentNumber: new FormControl(null,
                 [
                     Validators.required
+                ],
+                [
+                    this.validation.validateAccNumber.bind(this.validation)
                 ]),
             iPaymentNDS: new FormControl(null,
                 [
                     Validators.required
+                ],
+                [
+                    this.validation.validateNDS.bind(this.validation)
                 ]),
             iPaymentAmount: new FormControl(null,
                 [
                     Validators.required
+                ],
+                [
+                    this.validation.validateAmount.bind(this.validation)
                 ])
         });
     }
