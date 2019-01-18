@@ -58,3 +58,12 @@
 {
     width: 100%;
 }
+
+@media (max-width: 490px)
+{
+    .company-promotion__item
+    {
+        width: 97%;
+        height: auto;
+    }
+}

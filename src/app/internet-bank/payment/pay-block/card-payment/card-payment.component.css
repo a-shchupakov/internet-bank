@@ -118,6 +118,8 @@
         grid-template-areas: "icons" "number" "." ".";
 
         width: 97%;
+
+        min-width: 180px;
     }
 
     .card-info .payment-form__input
