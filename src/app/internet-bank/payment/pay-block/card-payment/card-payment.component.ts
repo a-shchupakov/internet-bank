@@ -7,7 +7,7 @@ import {ValidationService} from '../../../../shared/validation.service';
 @Component({
     selector: 'app-card-payment',
     templateUrl: './card-payment.component.html',
-    styleUrls: ['./card-payment.component.css', '../../payment.component.css']
+    styleUrls: ['../../payment.component.css', './card-payment.component.css']
 })
 export class CardPaymentComponent implements OnInit {
     cardPayment: FormGroup;

@@ -9,7 +9,7 @@ import {ValidationService} from '../../../shared/validation.service';
 @Component({
   selector: 'app-ask-for-payment-block',
   templateUrl: './ask-for-payment-block.component.html',
-  styleUrls: ['./ask-for-payment-block.component.css', '../payment.component.css']
+  styleUrls: ['../payment.component.css', './ask-for-payment-block.component.css']
 })
 export class AskForPaymentBlockComponent implements OnInit {
     company: Company;

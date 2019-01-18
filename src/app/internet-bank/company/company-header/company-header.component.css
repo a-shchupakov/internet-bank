@@ -67,3 +67,22 @@
 {
     color: #808080;
 }
+
+@media (max-width: 1150px)
+{
+    .personal-data
+    {
+        flex-flow: column nowrap;
+    }
+
+    .personal-data__info,
+    .personal-data__image
+    {
+        margin: 0 auto;
+    }
+
+    .personal-data__info
+    {
+        width: 97%;
+    }
+}

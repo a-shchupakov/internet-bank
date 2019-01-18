@@ -5,7 +5,7 @@ import {ValidationService} from '../../../../shared/validation.service';
 @Component({
     selector: 'app-internet-bank-payment',
     templateUrl: './internet-bank-payment.component.html',
-    styleUrls: ['./internet-bank-payment.component.css', '../../payment.component.css']
+    styleUrls: ['../../payment.component.css', './internet-bank-payment.component.css']
 })
 export class InternetBankPaymentComponent implements OnInit {
     internetPayment: FormGroup;

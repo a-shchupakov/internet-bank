@@ -78,3 +78,51 @@
 
     margin-top: 10px;
 }
+
+.payment-info .payment-form__input-container
+{
+    min-width: 170px;
+}
+
+@media (max-width: 1390px)
+{
+    .payment-form
+    {
+        flex-flow: column nowrap;
+    }
+
+    .card-info,
+    .payment-info
+    {
+        margin: 0 auto;
+    }
+
+    .payment-info
+    {
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 550px)
+{
+    .payment-info
+    {
+        display: flex;
+        flex-flow: column nowrap;
+    }
+
+    .card-info
+    {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-areas: "icons" "number" "." ".";
+
+        width: 97%;
+    }
+
+    .card-info .payment-form__input
+    {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
