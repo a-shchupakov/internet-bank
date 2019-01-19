@@ -12,7 +12,6 @@ export class AskPaymentItemComponent implements OnInit {
     constructor() {
     }
 
-    ngOnInit() {
-    }
+    ngOnInit() { }
 
 }

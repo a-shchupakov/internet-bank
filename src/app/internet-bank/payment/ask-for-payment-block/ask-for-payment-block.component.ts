@@ -72,10 +72,12 @@ export class AskForPaymentBlockComponent implements OnInit {
         const number = this.askPayment.get('askNumber').value;
         const nds = this.askPayment.get('askNDS').value;
         const amount = this.askPayment.get('askAmount').value;
-        const phone = this.askPayment.get('askTel').value;
+        let phone = this.askPayment.get('askTel').value;
         const email = this.askPayment.get('askEmail').value;
 
-        const ask_payment = new AskModel(inn, bik, number, nds, amount, email, phone, '');
-        this.server.createAskPayment(ask_payment).subscribe();
+        phone = (phone as string).replace(/(\(|\)|\s|\+|-)/g, '');
+
+        const askPayment = new AskModel(inn, bik, number, nds, amount, email, phone, '');
+        this.server.createAskPayment(askPayment).subscribe();
     }
 }
