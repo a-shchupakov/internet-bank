@@ -105,3 +105,16 @@
 {
     background-color: #f8f8f8;
 }
+
+@media (max-width: 330px)
+{
+    .nav-link-list
+    {
+        flex-flow: column nowrap;
+    }
+
+    .nav-link-list__item
+    {
+        margin-top: 10px;
+    }
+}

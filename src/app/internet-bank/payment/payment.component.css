@@ -270,3 +270,11 @@
         margin-top: 10px;
     }
 }
+
+@media (max-width: 395px)
+{
+    .payment-form__button-container_size_l
+    {
+        width: auto;
+    }
+}
