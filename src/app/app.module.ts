@@ -23,6 +23,7 @@ import { AskForPaymentBlockComponent } from './internet-bank/payment/ask-for-pay
 import { CardPaymentComponent } from './internet-bank/payment/pay-block/card-payment/card-payment.component';
 import { InternetBankPaymentComponent } from './internet-bank/payment/pay-block/internet-bank-payment/internet-bank-payment.component';
 import {ValidationService} from './shared/validation.service';
+import {MaskDirective} from './shared/mask.directive';
 
 const appRoutes: Routes = [
     { path: '', redirectTo: 'bank', pathMatch: 'full' },
@@ -60,7 +61,8 @@ const appRoutes: Routes = [
         CardPaymentItemComponent,
         SafetyPipe,
         AskPaymentItemComponent,
-        InternetBankComponent
+        InternetBankComponent,
+        MaskDirective
     ],
     imports: [
         BrowserModule,

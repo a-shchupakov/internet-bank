@@ -74,7 +74,9 @@
                 id="askTel"
                 type="tel"
                 formControlName="askTel"
-                placeholder="+ 7">
+                placeholder="+ 7 (800) 600 40 50"
+                appSpMask
+                [spMask]="this.phoneMask">
         </div>
         <label class="payment-form__label payment-form__label_layout-grid" for="askEmail">Эл. почта</label>
         <div class="payment-form__input-container"

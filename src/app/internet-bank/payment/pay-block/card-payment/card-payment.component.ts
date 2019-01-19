@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {HttpService} from '../../../../http.service';
 import {CardModel} from '../../../../shared/card.model';
 import {ValidationService} from '../../../../shared/validation.service';
+import {MyMaskUtil} from '../../../../shared/my-mask.util';
 
 @Component({
     selector: 'app-card-payment',
@@ -11,20 +12,21 @@ import {ValidationService} from '../../../../shared/validation.service';
 })
 export class CardPaymentComponent implements OnInit {
     cardPayment: FormGroup;
+    cardMask = MyMaskUtil.CARD_MASK_GENERATOR;
+    cardExpiresMask = MyMaskUtil.EXPIRES_MASK_GENERATOR;
 
-    constructor(private server: HttpService, private validation: ValidationService) {
-    }
+    constructor(private server: HttpService, private validation: ValidationService) {}
 
     ngOnInit() {
         this.cardPayment = new FormGroup({
             cardInfo: new FormGroup({
-                cardNumber: new FormControl('1111222233334444',
+                cardNumber: new FormControl('',
                     [
                         Validators.required
                     ], [
                         this.validation.validateCardNumber.bind(this.validation)
                     ]),
-                cardExpires: new FormControl('33/33',
+                cardExpires: new FormControl('',
                     [
                         Validators.required,
                     ], [

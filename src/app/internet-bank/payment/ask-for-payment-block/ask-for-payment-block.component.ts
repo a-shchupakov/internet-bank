@@ -5,6 +5,7 @@ import {CompanyService} from '../../../company.service';
 import {Company} from '../../company/company-header/company.model';
 import {AskModel} from '../../../shared/ask.model';
 import {ValidationService} from '../../../shared/validation.service';
+import {MyMaskUtil} from '../../../shared/my-mask.util';
 
 @Component({
   selector: 'app-ask-for-payment-block',
@@ -12,6 +13,7 @@ import {ValidationService} from '../../../shared/validation.service';
   styleUrls: ['../payment.component.css', './ask-for-payment-block.component.css']
 })
 export class AskForPaymentBlockComponent implements OnInit {
+    phoneMask = MyMaskUtil.PHONE_MASK_GENERATOR;
     company: Company;
     askPayment: FormGroup;
 
@@ -50,7 +52,7 @@ export class AskForPaymentBlockComponent implements OnInit {
                 ], [
                     this.validation.validateAmount.bind(this)
                 ]),
-            askTel: new FormControl('89223322990',
+            askTel: new FormControl('',
                 [Validators.required,
                 ], [
                     this.validation.validateTelNumber.bind(this)

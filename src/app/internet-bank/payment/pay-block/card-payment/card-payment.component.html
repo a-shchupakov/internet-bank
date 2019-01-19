@@ -15,7 +15,11 @@
                 class="payment-form__input"
                 type="text"
                 formControlName="cardNumber"
-                placeholder="Номер карты">
+                placeholder="Номер карты"
+                appSpMask
+                [spMask]="this.cardMask"
+                [spMaskValue]="'1111222233334444'"
+                >
             </div>
             <div class="card-info__expires payment-form__input-container"
                  [class.ng-pending]="this.cardPayment.get('cardInfo.cardExpires').pending"
@@ -26,7 +30,10 @@
                     class="payment-form__input"
                     type="text"
                     formControlName="cardExpires"
-                    placeholder="ММ/ГГ">
+                    placeholder="ММ/ГГ"
+                    appSpMask
+                    [spMask]="this.cardExpiresMask"
+                    [spMaskValue]="'01/21'">
             </div>
             <div class="card-info__cvc payment-form__input-container"
                  [class.ng-pending]="this.cardPayment.get('cardInfo.cardCVC').pending"
