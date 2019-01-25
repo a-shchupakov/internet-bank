@@ -6,6 +6,8 @@ import {Company} from '../../company/company-header/company.model';
 import {AskModel} from '../../../shared/ask.model';
 import {ValidationService} from '../../../shared/validation.service';
 import {MyMaskUtil} from '../../../shared/my-mask.util';
+import {FormStorageService} from '../../../shared/form-storage.service';
+import {sa} from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-ask-for-payment-block',
@@ -17,10 +19,23 @@ export class AskForPaymentBlockComponent implements OnInit {
     company: Company;
     askPayment: FormGroup;
 
-    constructor(private personService: CompanyService, private server: HttpService, private validation: ValidationService) { }
+    constructor(
+        private personService: CompanyService,
+        private server: HttpService,
+        private validation: ValidationService,
+        private formStorage: FormStorageService) { }
 
     ngOnInit() {
         this.company = this.personService.getPerson();
+        this.initForm();
+    }
+
+    initForm() {
+        const savedForm = this.formStorage.getAskPayment();
+        if (savedForm) {
+            this.askPayment = savedForm;
+            return;
+        }
         this.askPayment = new FormGroup({
             askWho: new FormControl('3333444400',
                 [
@@ -64,9 +79,10 @@ export class AskForPaymentBlockComponent implements OnInit {
                     this.validation.validateEmail.bind(this)
                 ]),
         });
+        this.formStorage.setAskPayment(this.askPayment);
     }
 
-    onSubmit() { // TODO: ngSubmit is broken
+    onSubmit() {
         const inn = this.askPayment.get('askWho').value;
         const bik = this.askPayment.get('askBIK').value;
         const number = this.askPayment.get('askNumber').value;

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ValidationService} from '../../../../shared/validation.service';
+import {FormStorageService} from '../../../../shared/form-storage.service';
 
 @Component({
     selector: 'app-internet-bank-payment',
@@ -10,10 +11,16 @@ import {ValidationService} from '../../../../shared/validation.service';
 export class InternetBankPaymentComponent implements OnInit {
     internetPayment: FormGroup;
 
-    constructor(private validation: ValidationService) {
+    constructor(private validation: ValidationService, private formStorage: FormStorageService) {
     }
 
     ngOnInit() {
+        const savedForm = this.formStorage.getInternetPayment();
+        if (savedForm) {
+            this.internetPayment = savedForm;
+            return;
+        }
+
         this.internetPayment = new FormGroup({
             iPaymentWho: new FormControl('',
                 [
@@ -51,6 +58,8 @@ export class InternetBankPaymentComponent implements OnInit {
                     this.validation.validateAmount.bind(this.validation)
                 ])
         });
+
+        this.formStorage.setInternetPayment(this.internetPayment);
     }
 
     onSubmit() {

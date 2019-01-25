@@ -24,6 +24,7 @@ import { CardPaymentComponent } from './internet-bank/payment/pay-block/card-pay
 import { InternetBankPaymentComponent } from './internet-bank/payment/pay-block/internet-bank-payment/internet-bank-payment.component';
 import {ValidationService} from './shared/validation.service';
 import {MaskDirective} from './shared/mask.directive';
+import {FormStorageService} from './shared/form-storage.service';
 
 const appRoutes: Routes = [
     { path: '', redirectTo: 'bank', pathMatch: 'full' },
@@ -70,7 +71,7 @@ const appRoutes: Routes = [
         HttpClientModule,
         RouterModule.forRoot(appRoutes)
     ],
-    providers: [CompanyService, HttpService, ValidationService],
+    providers: [CompanyService, HttpService, ValidationService, FormStorageService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

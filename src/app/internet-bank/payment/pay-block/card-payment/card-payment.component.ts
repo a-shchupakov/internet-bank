@@ -4,6 +4,8 @@ import {HttpService} from '../../../../http.service';
 import {CardModel} from '../../../../shared/card.model';
 import {ValidationService} from '../../../../shared/validation.service';
 import {MyMaskUtil} from '../../../../shared/my-mask.util';
+import {FormStorageService} from '../../../../shared/form-storage.service';
+import {sa} from '@angular/core/src/render3';
 
 @Component({
     selector: 'app-card-payment',
@@ -15,9 +17,18 @@ export class CardPaymentComponent implements OnInit {
     cardMask = MyMaskUtil.CARD_MASK_GENERATOR;
     cardExpiresMask = MyMaskUtil.EXPIRES_MASK_GENERATOR;
 
-    constructor(private server: HttpService, private validation: ValidationService) {}
+    constructor(
+        private server: HttpService,
+        private validation: ValidationService,
+        private formStorage: FormStorageService) {}
 
     ngOnInit() {
+        const savedForm = this.formStorage.getCardPayment();
+        if (savedForm) {
+            this.cardPayment = savedForm;
+            return;
+        }
+
         this.cardPayment = new FormGroup({
             cardInfo: new FormGroup({
                 cardNumber: new FormControl('',
@@ -55,6 +66,8 @@ export class CardPaymentComponent implements OnInit {
                     ])
             })
         });
+
+        this.formStorage.setCardPayment(this.cardPayment);
     }
 
     onSubmit() {
