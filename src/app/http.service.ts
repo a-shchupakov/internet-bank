@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {CardModel} from './shared/card.model';
 import {AskModel} from './shared/ask.model';
 import {ValidationErrors} from '@angular/forms';
@@ -21,6 +21,10 @@ export class HttpService {
         return this.http.get<CardModel[]>(this.cardsApiUrl);
     }
 
+    getCardPaymentsWithParams(params: any) {
+        return this.http.get<CardModel[]>(this.cardsApiUrl, { params: params });
+    }
+
     markCardPayment(url: string) {
         return this.http.patch<CardModel>(this.serverUrl + url, {});
     }
@@ -31,6 +35,10 @@ export class HttpService {
 
     getAskedPayments() {
         return this.http.get<AskModel[]>(this.askApiUrl);
+    }
+
+    getAskedPaymentsWithParams(params: any) {
+        return this.http.get<AskModel[]>(this.askApiUrl, { params: params });
     }
 
     validateCardNumber(value) {
