@@ -8,18 +8,11 @@ import {ActivatedRoute} from '@angular/router';
     styleUrls: ['./asked-payments.component.css']
 })
 export class AskedPaymentsComponent implements OnInit {
-    askedPayments;
+    askedPayments = this.server.getAskedPayments(this.route.snapshot.queryParams);
 
     constructor(private server: HttpService,
                 private route: ActivatedRoute) {
     }
 
-    ngOnInit() {
-        if (this.route.snapshot.queryParams) {
-            this.askedPayments = this.server.getAskedPaymentsWithParams(this.route.snapshot.queryParams);
-        } else {
-            this.askedPayments = this.server.getAskedPayments();
-        }
-    }
-
+    ngOnInit() {}
 }

@@ -8,17 +8,11 @@ import {ActivatedRoute} from '@angular/router';
     styleUrls: ['./card-payments.component.css']
 })
 export class CardPaymentsComponent implements OnInit {
-    cardPayments;
+    cardPayments = this.server.getCardPayments(this.route.snapshot.queryParams);
 
     constructor(private server: HttpService,
                 private route: ActivatedRoute) {
     }
 
-    ngOnInit() {
-        if (this.route.snapshot.queryParams) {
-            this.cardPayments = this.server.getCardPaymentsWithParams(this.route.snapshot.queryParams);
-        } else {
-            this.cardPayments = this.server.getCardPayments();
-        }
-    }
+    ngOnInit() {}
 }

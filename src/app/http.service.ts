@@ -17,11 +17,7 @@ export class HttpService {
         return this.http.post<CardModel>(this.cardsApiUrl, cardPayment);
     }
 
-    getCardPayments() {
-        return this.http.get<CardModel[]>(this.cardsApiUrl);
-    }
-
-    getCardPaymentsWithParams(params: any) {
+    getCardPayments(params: any) {
         return this.http.get<CardModel[]>(this.cardsApiUrl, { params: params });
     }
 
@@ -33,11 +29,7 @@ export class HttpService {
         return this.http.post<AskModel>(this.askApiUrl, askPayment);
     }
 
-    getAskedPayments() {
-        return this.http.get<AskModel[]>(this.askApiUrl);
-    }
-
-    getAskedPaymentsWithParams(params: any) {
+    getAskedPayments(params: any) {
         return this.http.get<AskModel[]>(this.askApiUrl, { params: params });
     }
 
