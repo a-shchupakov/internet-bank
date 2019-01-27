@@ -1,0 +1,17 @@
+<div>
+    <form class="auth-form" [formGroup]="form" (ngSubmit)="auth()"
+          [class.auth-form_failed]="failed">
+        <label class="payment-form__label payment-form__label_centered" for="login">Login</label>
+        <input id="login" class="payment-form__input payment-form__input_centered" type="text" formControlName="login">
+        <label class="payment-form__label payment-form__label_centered" for="password">Password</label>
+        <input id="password" class="payment-form__input payment-form__input_centered" type="password" formControlName="password">
+        <div
+            class="payment-form__button-container payment-form__button-container_size_s payment-form__button-container_centered"
+            [class.payment-form__button-container_disabled]="form.invalid">
+            <span class="payment-form__bg"></span>
+            <button class="payment-form__button" type="submit" [disabled]="form.invalid">
+                Sign In
+            </button>
+        </div>
+    </form>
+</div>

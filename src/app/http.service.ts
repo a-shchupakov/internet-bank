@@ -12,6 +12,11 @@ export class HttpService {
     private cardsApiUrl = this.serverUrl + '/bank/api/card-payments/';
     private askApiUrl = this.serverUrl + '/bank/api/ask-payments/';
     private validationApiUrl = this.serverUrl + '/bank/api/validation/';
+    private authUrl = this.serverUrl + '/bank/api/token';
+
+    getToken(login: string, password: string) {
+        return this.http.post<{ token: string }>(this.authUrl, { login, password });
+    }
 
     createCardPayment(cardPayment: CardModel) {
         return this.http.post<CardModel>(this.cardsApiUrl, cardPayment);

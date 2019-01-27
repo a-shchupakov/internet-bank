@@ -1,7 +1,7 @@
 import {BrowserModule } from '@angular/platform-browser';
 import {NgModule } from '@angular/core';
 import {ReactiveFormsModule } from '@angular/forms';
-import {HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
 import {AppComponent} from './app.component';
 import { CompanyService } from './company.service';
@@ -25,6 +25,9 @@ import { InternetBankPaymentComponent } from './internet-bank/payment/pay-block/
 import {ValidationService} from './shared/validation.service';
 import {MaskDirective} from './shared/mask.directive';
 import {FormStorageService} from './shared/form-storage.service';
+import {TokenService} from './shared/token.service';
+import { AuthComponent } from './admin-panel/auth/auth.component';
+import {AuthInterceptor} from './shared/auth.interceptor';
 
 const appRoutes: Routes = [
     { path: '', redirectTo: 'bank', pathMatch: 'full' },
@@ -41,8 +44,8 @@ const appRoutes: Routes = [
                     { path: 'card', component: CardPaymentComponent },
                     { path: 'bank-payment', component: InternetBankPaymentComponent }
                 ]}
-        ]
-         }
+        ]},
+    { path: 'auth', component: AuthComponent }
 ];
 
 @NgModule({
@@ -63,7 +66,8 @@ const appRoutes: Routes = [
         SafetyPipe,
         AskPaymentItemComponent,
         InternetBankComponent,
-        MaskDirective
+        MaskDirective,
+        AuthComponent
     ],
     imports: [
         BrowserModule,
@@ -71,7 +75,14 @@ const appRoutes: Routes = [
         HttpClientModule,
         RouterModule.forRoot(appRoutes)
     ],
-    providers: [CompanyService, HttpService, ValidationService, FormStorageService],
+    providers: [
+        CompanyService,
+        HttpService,
+        ValidationService,
+        FormStorageService,
+        TokenService,
+        { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {

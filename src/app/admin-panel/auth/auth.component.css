@@ -1,0 +1,76 @@
+.auth-form
+{
+    width: 25%;
+    margin: 0 auto;
+    padding: 25px;
+    min-width: 200px;
+
+    border: 1px solid #534c63;
+    border-radius: 5px;
+
+}
+
+.payment-form__button-container_centered
+{
+    margin: 50px auto 0;
+}
+
+.payment-form__button-container_size_s
+{
+    width: 100px;
+    height: 40px;
+}
+
+.payment-form__input
+{
+    margin-top: 15px;
+}
+
+.payment-form__input.ng-valid.ng-touched,
+.payment-form__input.ng-invalid.ng-touched
+{
+    border-bottom: 1px solid #ccc;
+}
+
+.payment-form__label,
+.payment-form__input
+{
+    width: 60%;
+    text-align: center;
+}
+
+.payment-form__label_centered, .payment-form__input_centered
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.auth-form_failed
+{
+    position: relative;
+}
+
+.auth-form_failed::after
+{
+    position: absolute;
+    content: '';
+    margin: 0;
+    top: 0;
+    width: 32px;
+    height: 32px;
+    right: -50px;
+
+    opacity: 1;
+    background: url('/src/assets/safety_icons/cross.svg') no-repeat;
+    background-size: 100% 100%;
+}
+
+@media (max-width: 350px)
+{
+    .auth-form
+    {
+        border: none;
+        padding: 0;
+    }
+}

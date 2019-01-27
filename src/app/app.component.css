@@ -1,0 +1,9 @@
+.nav-link-list__item_right
+{
+    margin-left: auto;
+}
+
+.nav-link-list__item_hidden
+{
+    display: none;
+}

@@ -1,4 +1,6 @@
 import {Component} from '@angular/core';
+import {TokenService} from './shared/token.service';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-root',
@@ -6,5 +8,14 @@ import {Component} from '@angular/core';
     styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    title = 'internet-bank';
+    constructor(private token: TokenService, private router: Router) {}
+
+    isAuth() {
+        return this.token.isAuth();
+    }
+
+    logOut() {
+        this.token.logOut();
+        this.router.navigate(['/']);
+    }
 }

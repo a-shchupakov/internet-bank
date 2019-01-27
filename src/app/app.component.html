@@ -1,3 +1,31 @@
 <div class="page page_space_around page_size_m">
+    <ul class="nav-link-list">
+        <li
+            class="nav-link-list__item nav-link-list__item_major"
+            [class.nav-link-list__item_hidden]="!isAuth()"
+            routerLink="admin"
+            routerLinkActive="nav-link-list__item_active">
+            Админ-панель
+        </li>
+        <li
+            class="nav-link-list__item nav-link-list__item_major"
+            routerLink="bank"
+            routerLinkActive="nav-link-list__item_active">
+            Интернет-банк
+        </li>
+        <li
+            class="nav-link-list__item nav-link-list__item_major nav-link-list__item_right"
+            [class.nav-link-list__item_hidden]="isAuth()"
+            routerLink="auth"
+            routerLinkActive="nav-link-list__item_active">
+            Авторизация
+        </li>
+        <li
+            class="nav-link-list__item nav-link-list__item_major nav-link-list__item_right"
+            [class.nav-link-list__item_hidden]="!isAuth()"
+            (click)="logOut()">
+            Выйти
+        </li>
+    </ul>
     <router-outlet></router-outlet>
 </div>
