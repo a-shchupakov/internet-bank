@@ -28,10 +28,11 @@ import {FormStorageService} from './shared/form-storage.service';
 import {TokenService} from './shared/token.service';
 import { AuthComponent } from './admin-panel/auth/auth.component';
 import {AuthInterceptor} from './shared/auth.interceptor';
+import {AuthGuard} from './shared/auth.guard';
 
 const appRoutes: Routes = [
     { path: '', redirectTo: 'bank', pathMatch: 'full' },
-    { path: 'admin', component: AdminPanelComponent, children: [
+    { path: 'admin', component: AdminPanelComponent, canActivate: [AuthGuard], children: [
             { path: '', redirectTo: 'payments', pathMatch: 'full'},
             { path: 'payments', component: CardPaymentsComponent },
             { path: 'asked', component: AskedPaymentsComponent }
@@ -81,6 +82,7 @@ const appRoutes: Routes = [
         ValidationService,
         FormStorageService,
         TokenService,
+        AuthGuard,
         { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
     ],
     bootstrap: [AppComponent]
